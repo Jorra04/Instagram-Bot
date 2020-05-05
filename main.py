@@ -40,18 +40,18 @@ class InstaBot:
         self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]").click()
 
     def dm_group(self):
-        content = []
-        content = self.driver.find_elements_by_xpath("//div[@class=\"        DPiy6           Igw0E     IwRSH      eGOV_         _4EzTm                                                                                                              \"]")
-        for i in content:
-            print(i)
-            sleep(5)
-            i.click()
-        # self.driver.find_element_by_xpath("//div[@class=\"        DPiy6           Igw0E     IwRSH      eGOV_         _4EzTm                                                                                                              \"]").click()
-        # sleep(5)
-        # self.driver.find_element_by_xpath("//textarea[@placeholder=\"Message...\"]").send_keys("group message.")
+        # content = []
+        # content = self.driver.find_elements_by_xpath("//div[@class=\"        DPiy6           Igw0E     IwRSH      eGOV_         _4EzTm                                                                                                              \"]")
+        # for i in content:
+        #     print(i)
+        #     sleep(5)
+        #     i.click()
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/div/div[2]/div/div/div[1]/div[2]/div/div/div/div/div[5]").click()
+        sleep(5)
+        self.driver.find_element_by_xpath("//textarea[@placeholder=\"Message...\"]").send_keys("Hahaha! Truly glad you shared, jessica!")
 
-        # sleep(5)
-        # self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]").click()
+        sleep(5)
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]").click()
 myBot = InstaBot(user, pw)
 # myBot.dm_group()
 myBot.personal_dm()
