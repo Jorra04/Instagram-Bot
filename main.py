@@ -1,7 +1,7 @@
 from selenium import webdriver
 from time import sleep
-from creds import pw
-from creds import user
+from creds import pw, user, slider,groupName
+
 
 class InstaBot:
     def __init__(self, username, pw):
@@ -17,17 +17,46 @@ class InstaBot:
 
         self.driver.find_element_by_xpath("//button[@type=\"submit\"]").click()
 
-        sleep(4)
+        sleep(5)
 
         self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
+        sleep(5)
+        self.driver.find_element_by_class_name("xWeGp").click()
+        sleep(5)
+    def personal_dm(self):
+        self.driver.find_element_by_xpath("//button[@type=\"button\"]").click()
+        sleep(5)
+        self.driver.find_element_by_xpath("//input[@name=\"queryBox\"]").send_keys(slider)
+        sleep(5)
+        self.driver.find_element_by_class_name("dCJp8 ").click()
 
-        
-        
-    def get_unfollowers(self):
-        self.driver.find_element_by_xpath("""//*[@id="react-root"]/section/div/div[1]/div/div[3]/div/div[2]/a/svg""")\
-            .click()
-        print("hello")
+        sleep(5)
+        # self.driver.find_element_by_xpath("//button[@type=\"button\"]").click()
+        self.driver.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/div/button").click()
+        sleep(5)
+        self.driver.find_element_by_xpath("//textarea[@placeholder=\"Message...\"]").send_keys("i turned myself into a bot.")
 
+        sleep(5)
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]").click()
+
+    def dm_group(self):
+        content = []
+        content = self.driver.find_elements_by_xpath("//div[@class=\"        DPiy6           Igw0E     IwRSH      eGOV_         _4EzTm                                                                                                              \"]")
+        for i in content:
+            print(i)
+            sleep(5)
+            i.click()
+        # self.driver.find_element_by_xpath("//div[@class=\"        DPiy6           Igw0E     IwRSH      eGOV_         _4EzTm                                                                                                              \"]").click()
+        # sleep(5)
+        # self.driver.find_element_by_xpath("//textarea[@placeholder=\"Message...\"]").send_keys("group message.")
+
+        # sleep(5)
+        # self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]").click()
 myBot = InstaBot(user, pw)
-myBot.get_unfollowers()
+# myBot.dm_group()
+myBot.personal_dm()
+
+myBot.driver.quit()
+
+
 
